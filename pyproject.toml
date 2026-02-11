@@ -1,0 +1,26 @@
+[build-system]
+requires = ["setuptools>=61.0"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "ml-intro"
+version = "0.1.0"
+description = "A machine learning introduction project"
+readme = "README.md"
+requires-python = ">=3.8"
+dependencies = [
+    "kaggle>=1.7.4.5",
+    "kagglehub>=0.2.9",
+    "mypy>=1.14.1",
+    "poethepoet>=0.30.0",
+    "pydantic>=2.10.6",
+    "pytest>=8.3.5",
+    "ruff>=0.15.0",
+]
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+pythonpath = ["src"]

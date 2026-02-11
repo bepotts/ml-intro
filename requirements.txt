@@ -1,0 +1,6 @@
+# Add your project dependencies here
+# e.g. numpy>=1.24.0
+# e.g. pandas>=2.0.0
+
+# Development
+pytest>=7.0.0
