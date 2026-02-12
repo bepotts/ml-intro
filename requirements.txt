@@ -1,6 +1,41 @@
-# Add your project dependencies here
-# e.g. numpy>=1.24.0
-# e.g. pandas>=2.0.0
-
-# Development
-pytest>=7.0.0
+annotated-types==0.7.0
+bleach==6.3.0
+certifi==2026.1.4
+charset-normalizer==3.4.4
+exceptiongroup==1.3.1
+idna==3.11
+iniconfig==2.3.0
+kaggle==1.7.4.5
+kagglehub==1.0.0
+kagglesdk==0.1.15
+librt==0.7.8
+-e git+https://github.com/bepotts/ml-intro.git@32726927eabd92d352c2e37adbf5a02ef5a53395#egg=ml_intro
+mypy==1.19.1
+mypy_extensions==1.1.0
+numpy==2.2.6
+packaging==26.0
+pandas==2.3.3
+pastel==0.2.1
+pathspec==1.0.4
+pluggy==1.6.0
+poethepoet==0.41.0
+protobuf==6.33.5
+pydantic==2.12.5
+pydantic_core==2.41.5
+Pygments==2.19.2
+pytest==9.0.2
+python-dateutil==2.9.0.post0
+python-slugify==8.0.4
+pytz==2025.2
+PyYAML==6.0.3
+requests==2.32.5
+ruff==0.15.0
+six==1.17.0
+text-unidecode==1.3
+tomli==2.4.0
+tqdm==4.67.3
+typing-inspection==0.4.2
+typing_extensions==4.15.0
+tzdata==2025.3
+urllib3==2.6.3
+webencodings==0.5.1

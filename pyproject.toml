@@ -12,10 +12,12 @@ dependencies = [
     "kaggle>=1.7.4.5",
     "kagglehub>=0.2.9",
     "mypy>=1.14.1",
+    "pandas>=2.0.3",
     "poethepoet>=0.30.0",
     "pydantic>=2.10.6",
     "pytest>=8.3.5",
     "ruff>=0.15.0",
+    "scikit-learn>=1.3.2",
 ]
 
 [tool.setuptools.packages.find]
@@ -24,3 +26,7 @@ where = ["src"]
 [tool.pytest.ini_options]
 testpaths = ["tests"]
 pythonpath = ["src"]
+
+[tool.poe.tasks]
+run = "python -m ml_intro.main"
+ruff = "ruff check ."
