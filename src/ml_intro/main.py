@@ -1,8 +1,10 @@
 """Main entry point for ml_intro."""
 from pathlib import Path
-from sklearn.tree import DecisionTreeRegressor
 
 import pandas as pd
+from sklearn.metrics import mean_absolute_error
+from sklearn.tree import DecisionTreeRegressor
+from sklearn.model_selection import train_test_split
 
 
 def main() -> None:
@@ -26,7 +28,8 @@ def main() -> None:
     print("\nColumn names in Melbourne housing data:")
     print(melbourne_data.columns)
 
-    melbourne_features = ['Rooms', 'Bathroom', 'Landsize', 'Lattitude', 'Longtitude']
+    melbourne_features = ['Rooms', 'Bathroom', 'Landsize',
+                           'BuildingArea', 'YearBuilt', 'Lattitude', 'Longtitude']
     X = filtered_melbourne_data[melbourne_features]
     print("Data used to predict housing prices:")
     print(X.describe())
@@ -41,6 +44,27 @@ def main() -> None:
     print(X.head())
     print("The predictions are")
     print(melbourne_model.predict(X.head()))
+
+    #  Calculate MAE for the model
+    predicted_home_prices = melbourne_model.predict(X)
+    mae = mean_absolute_error(y, predicted_home_prices)
+    print(f"\nMean Absolute Error for the model: {mae}")
+
+    # split data into training and validation data, for both features and target
+    # The split is based on a random number generator. Supplying a numeric value to
+    # the random_state argument guarantees we get the same split every time we
+    # run this script.
+    train_X, val_X, train_y, val_y = train_test_split(X, y, random_state=0)
+    # Define model
+    melbourne_model = DecisionTreeRegressor(random_state=1)
+    # Fit model
+    melbourne_model.fit(train_X, train_y)
+    # Get predicted prices on validation data
+    val_predictions = melbourne_model.predict(val_X)
+    # Calculate MAE
+    val_mae = mean_absolute_error(val_y, val_predictions)
+    print(f"\nValidation MAE: {val_mae}")
+    
 
 
 if __name__ == "__main__":
