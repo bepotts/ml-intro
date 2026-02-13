@@ -9,6 +9,7 @@ description = "A machine learning introduction project"
 readme = "README.md"
 requires-python = ">=3.8"
 dependencies = [
+    "isort>=5.13.2",
     "kaggle>=1.7.4.5",
     "kagglehub>=0.2.9",
     "mypy>=1.14.1",
@@ -30,3 +31,4 @@ pythonpath = ["src"]
 [tool.poe.tasks]
 run = "python -m ml_intro.main"
 ruff = "ruff check ."
+isort = "isort ."
