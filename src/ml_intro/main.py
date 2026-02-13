@@ -14,7 +14,11 @@ def main() -> None:
         / "melb_data.csv"
     )
     melbourne_data = pd.read_csv(melburn_data_path)
-    y = melbourne_data.Price
+
+    # Filter rows with missing price values
+    filtered_melbourne_data = melbourne_data.dropna(axis=0)
+
+    y = filtered_melbourne_data.Price
     summary_table = melbourne_data.describe()
     print("Summary table for Melbourne housing data:")
     print(summary_table)
@@ -23,7 +27,7 @@ def main() -> None:
     print(melbourne_data.columns)
 
     melbourne_features = ['Rooms', 'Bathroom', 'Landsize', 'Lattitude', 'Longtitude']
-    X = melbourne_data[melbourne_features]
+    X = filtered_melbourne_data[melbourne_features]
     print("Data used to predict housing prices:")
     print(X.describe())
 
