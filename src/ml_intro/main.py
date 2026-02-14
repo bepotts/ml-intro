@@ -1,6 +1,7 @@
 """Main entry point for ml_intro."""
 from pathlib import Path
 
+from src.ml_intro.utility import get_mae
 import pandas as pd
 from sklearn.metrics import mean_absolute_error
 from sklearn.tree import DecisionTreeRegressor
@@ -64,7 +65,11 @@ def main() -> None:
     # Calculate MAE
     val_mae = mean_absolute_error(val_y, val_predictions)
     print(f"\nValidation MAE: {val_mae}")
-    
+
+    for max_leaf_nodes in [5, 50, 500, 5000]:
+        my_mae = get_mae(max_leaf_nodes, train_X, val_X, train_y, val_y)
+        print(f"Max leaf nodes: {max_leaf_nodes} \t\t Mean Absolute Error: {my_mae}")
+
 
 
 if __name__ == "__main__":
