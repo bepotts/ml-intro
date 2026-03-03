@@ -1,5 +1,6 @@
-from sklearn.metrics import mean_absolute_error 
+from sklearn.metrics import mean_absolute_error
 from sklearn.tree import DecisionTreeRegressor
+
 
 def get_mae( max_leaf_nodes, X_train, X_val, y_train, y_val):
     """Calculate MAE for a Decision Tree Regressor."""
